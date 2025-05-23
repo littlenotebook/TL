@@ -51,20 +51,20 @@ const StyledWrapper = styled.div`
     position: relative;
     cursor: pointer;
     display: flex;
-    height: 48px;
-    width: 90px;
-    border-radius: 16px;
+    height: 35px;
+    width: 70px;
+    border-radius: 5px;
     border: none;
     background-color: #ef9b9c;
     overflow: hidden;
-    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-      inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    box-shadow: inset -2px -2px 2px rgba(255, 255, 255, 0.2),
+      inset 2px 2px 2px rgba(0, 0, 0, 0.1),
       4px 4px 10px rgba(239, 155, 156, 0.4),
       -2px -2px 8px rgba(255, 255, 255, 0.1);
   }
 
   .like {
-    width: 70%;
+    width: 60%;
     height: 100%;
     display: flex;
     cursor: pointer;
@@ -74,8 +74,8 @@ const StyledWrapper = styled.div`
 
   .like-icon {
     fill: #505050;
-    height: 28px;
-    width: 28px;
+    height: 22px;
+    width: 22px;
   }
 
   .like-text {
@@ -87,15 +87,16 @@ const StyledWrapper = styled.div`
   .like-count {
     position: absolute;
     right: 0;
-    width: 30%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #505050;
     font-size: 16px;
-    border-left: 2px solid #4e4e4e;
+    // border-left: 2px solid #4e4e4e;
     transition: all 0.5s ease-out;
+    padding-right: 5px;
   }
 
   .like-count.two {
