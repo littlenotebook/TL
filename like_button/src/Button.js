@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Button = () => {
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
-
+  useEffect(() => {
+    fetch("http://https://tl-9glx.onrender.com/likes")
+      .then((res) => res.json())
+      .then((data) => setCount(data.count))
+      .catch((err) => console.error(err));
+  }, []);
   const handleLikeToggle = () => {
-    if (!liked) {
-      setCount((prev) => prev + 1);
-    } else {
-      setCount((prev) => prev - 1);
-    }
-    setLiked((prev) => !prev);
+    if (liked) return; // prevent multiple likes from same user in this simple example
+    fetch("http://https://tl-9glx.onrender.com/likes/increment", {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCount(data.count);
+        setLiked(true);
+      })
+      .catch(console.error);
+
+    //   const handleLikeToggle = () => {
+    //     if (!liked) {
+    //       setCount((prev) => prev + 1);
+    //     } else {
+    //       setCount((prev) => prev - 1);
+    //     }
+    //     setLiked((prev) => !prev);
   };
 
   return (
@@ -51,8 +68,8 @@ const StyledWrapper = styled.div`
     position: relative;
     cursor: pointer;
     display: flex;
-    height: 35px;
-    width: 70px;
+    height: 30px;
+    width: 50px;
     border-radius: 5px;
     border: none;
     background-color: #ef9b9c;
@@ -80,7 +97,7 @@ const StyledWrapper = styled.div`
 
   .like-text {
     color: #505050;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Verdana", Tahoma, Geneva, Verdana, sans-serif;
   }
 
