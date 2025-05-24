@@ -5,7 +5,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let likeCount = 0; // initial count, you can change this
+let likeCount = 0; // initial count
+
+// Root route for sanity check
+app.get("/", (req, res) => {
+  res.send("Like Counter Backend is running");
+});
 
 // Get current like count
 app.get("/likes", (req, res) => {
