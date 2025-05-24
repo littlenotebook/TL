@@ -5,14 +5,14 @@ const Button = () => {
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
   useEffect(() => {
-    fetch("http://https://tl-9glx.onrender.com/likes")
+    fetch("https://tl-9glx.onrender.com/likes")
       .then((res) => res.json())
       .then((data) => setCount(data.count))
       .catch((err) => console.error(err));
   }, []);
   const handleLikeToggle = () => {
     if (liked) return; // prevent multiple likes from same user in this simple example
-    fetch("http://https://tl-9glx.onrender.com/likes/increment", {
+    fetch("https://tl-9glx.onrender.com/likes/increment", {
       method: "POST",
     })
       .then((res) => res.json())
