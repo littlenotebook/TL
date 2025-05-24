@@ -73,7 +73,7 @@ const StyledWrapper = styled.div`
     width: 50px;
     border-radius: 5px;
     border: none;
-    background-color: #ef9b9c;
+    background-color: transparent;
     overflow: hidden;
     box-shadow: inset -2px -2px 2px rgba(255, 255, 255, 0.2),
       inset 2px 2px 2px rgba(0, 0, 0, 0.1),
